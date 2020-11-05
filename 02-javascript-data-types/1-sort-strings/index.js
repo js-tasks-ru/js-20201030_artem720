@@ -6,4 +6,11 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
-}
+    return arr.slice().sort((a,b)=> {
+        if(param == 'asc'){
+            return a.localeCompare(b, undefined,{caseFirst:'upper'})
+        } else{
+            return b.localeCompare(a, undefined,{caseFirst:'upper'})
+        }
+    })
+};
