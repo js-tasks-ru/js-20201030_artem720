@@ -8,9 +8,12 @@ export function sortStrings(arr, param = 'asc') {
 
     return arr.slice().sort((a,b)=> {
         if(param == 'asc'){
-            return a.localeCompare(b,  ['ru', 'en'],{caseFirst:'upper'})
+           return compareStrings(a,b);
         } else{
-            return b.localeCompare(a,  ['ru', 'en'],{caseFirst:'upper'})
+            return compareStrings(b,a);
         }
     })
 };
+function compareStrings(str, compStr){
+    return str.localeCompare(compStr, ['ru', 'en'], {caseFirst:'upper'})
+}
